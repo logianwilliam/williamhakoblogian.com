@@ -27,10 +27,13 @@ main {
 
 .image-login-trigger {
   display: block;
+  appearance: none;
+  -webkit-appearance: none;
   margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
+  color: inherit;
   cursor: pointer;
 }
 
@@ -40,7 +43,9 @@ main {
 }
 
 .image-login-trigger img {
-  width: min(82vw, 820px);
+  width: auto;
+  height: auto;
+  max-width: min(82vw, 820px);
   max-height: 72vh;
   object-fit: contain;
   display: block;
@@ -75,6 +80,7 @@ p {
 }
 
 .login-modal__panel {
+  display: block;
   position: relative;
   z-index: 1;
   width: min(100%, 286px);
@@ -86,6 +92,12 @@ p {
   cursor: grab;
   user-select: none;
   touch-action: none;
+}
+
+.login-modal__panel button,
+.login-modal__panel input {
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .login-modal__panel.is-dragging {
