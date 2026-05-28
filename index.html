@@ -8,8 +8,30 @@
 </head>
 <body>
   <main>
-    <img src="images/landing.jpg" alt="" />
+    <button class="image-login-trigger" type="button" aria-label="Open login">
+      <img src="images/landing.jpg" alt="" />
+    </button>
     <p>williamhakoblogian.com<br>coming soon</p>
   </main>
+
+  <div class="login-modal" id="login-modal" hidden>
+    <div class="login-modal__backdrop"></div>
+    <form class="login-modal__panel" id="login-form" aria-labelledby="login-title" autocomplete="off">
+      <button class="login-modal__close" type="button" aria-label="Close login" data-close-login>&times;</button>
+      <h1 id="login-title">login</h1>
+      <label>
+        <span>user</span>
+        <input id="login-user" name="site-login-user" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required />
+      </label>
+      <label>
+        <span>password</span>
+        <input id="login-password" name="site-login-password" type="password" autocomplete="new-password" required />
+      </label>
+      <p class="login-modal__error" id="login-error" aria-live="polite"></p>
+      <button class="login-modal__submit" type="submit">enter</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

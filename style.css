@@ -6,6 +6,14 @@ body {
   font-size: 11px;
 }
 
+.work-body {
+  overflow: hidden;
+}
+
+body.is-login-open {
+  overflow: hidden;
+}
+
 main {
   min-height: 100vh;
   display: flex;
@@ -17,7 +25,21 @@ main {
   box-sizing: border-box;
 }
 
-img {
+.image-login-trigger {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.image-login-trigger:focus-visible {
+  outline: 1px solid #111;
+  outline-offset: 10px;
+}
+
+.image-login-trigger img {
   width: min(82vw, 820px);
   max-height: 72vh;
   object-fit: contain;
@@ -30,4 +52,195 @@ p {
   text-align: center;
   letter-spacing: 0.01em;
   font-size: 14px;
+}
+
+.login-modal[hidden] {
+  display: none;
+}
+
+.login-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.login-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+.login-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 286px);
+  padding: 20px 18px 18px;
+  border: 1px solid #111;
+  box-shadow: 5px 5px 0 #111;
+  background: #fff;
+  box-sizing: border-box;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.login-modal__panel.is-dragging {
+  cursor: grabbing;
+}
+
+.login-modal__panel h1 {
+  margin: 0 0 18px;
+  padding: 0 28px 9px 0;
+  border-bottom: 1px solid #111;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.login-modal__panel label {
+  display: block;
+  margin: 0 0 13px;
+}
+
+.login-modal__panel span {
+  display: block;
+  margin: 0 0 6px;
+  line-height: 1;
+}
+
+.login-modal__panel input {
+  width: 100%;
+  height: 29px;
+  padding: 5px 7px;
+  border: 1px solid #111;
+  border-radius: 0;
+  background: #f7f7f7;
+  color: #111;
+  font: inherit;
+  box-sizing: border-box;
+  user-select: text;
+}
+
+.login-modal__panel input:focus {
+  outline: 1px solid #111;
+  outline-offset: 2px;
+}
+
+.login-modal__close {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  line-height: 14px;
+}
+
+.login-modal__error {
+  min-height: 16px;
+  margin: -2px 0 10px;
+  color: #ff0000;
+  text-align: left;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.login-modal__submit,
+.work-page a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 6px 10px;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.login-modal__submit:hover,
+.work-page a:hover {
+  background: #111;
+  color: #fff;
+}
+
+.login-modal__submit {
+  width: 100%;
+}
+
+.work-page {
+  min-height: 100vh;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px 12px;
+}
+
+.work-nav {
+  width: min(100%, 1500px);
+}
+
+.contact-sheet-viewer {
+  position: relative;
+  width: min(100%, 1500px);
+  cursor: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.contact-sheet {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.magnifier {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 500px;
+  max-width: 82vw;
+  max-height: 82vw;
+  pointer-events: none;
+}
+
+.magnifier[hidden] {
+  display: none;
+}
+
+.magnifier::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: url("images/loupe.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.magnifier__zoom {
+  position: absolute;
+  left: 2.5%;
+  top: 4%;
+  width: 43%;
+  height: 56%;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 1;
 }
